@@ -1,0 +1,32 @@
+/**
+* Contents
+  *
+  *   1. Imports
+  *   2. Global Styles
+  *   3. Images
+  */
+
+/* 1. Imports
+-------------------------------------------*/
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+/* 2. Global Styles
+-------------------------------------------*/
+
+#main {
+  margin: 0 auto 1rem auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+/* 2. Images
+-------------------------------------------*/
+
+#github-logo {
+  padding-bottom: 2rem;
+}
