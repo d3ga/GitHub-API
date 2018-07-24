@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import SearchForm from "./SearchForm";
 import Axios from "axios";
 
@@ -6,7 +6,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {}
+      data: [],
+      submit: false
     };
   }
 
@@ -15,7 +16,14 @@ class App extends React.Component {
   getApiData = query => {
     console.log("Input:", query);
     Axios.get(`${this.apiUrl}/search/users?q=${query}`)
-      .then(response => console.log(response))
+      .then(response => {
+        this.setState(state => {
+          state.data = response.data.items;
+          console.log("Axios", response, "State:", state.data.items);
+          state.submit = true;
+          return state;
+        });
+      })
 
       .catch(error => {
         console.error(error);
@@ -24,7 +32,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <img
           id="github-logo"
           src="./images/GitHub_logo.png"
@@ -32,8 +40,8 @@ class App extends React.Component {
           height="auto"
           alt="this is the logo of GitHub"
         />
-        <SearchForm getApiData={this.getApiData} />
-      </div>
+        <SearchForm getApiData={this.getApiData} state={this.state} />
+      </Fragment>
     );
   }
 }

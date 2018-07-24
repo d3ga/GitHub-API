@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Result from "./Result";
 
 class SearchForm extends React.Component {
   userInputRef = React.createRef();
@@ -20,7 +21,6 @@ class SearchForm extends React.Component {
                 className="form-control"
                 placeholder="Search..."
                 ref={this.userInputRef}
-                // onChange={}
               />
               <div className="input-group-append">
                 <button className="btn btn-outline-secondary" type="submit">
@@ -30,6 +30,12 @@ class SearchForm extends React.Component {
             </div>
           </form>
         </div>
+
+        {this.props.state.submit
+          ? Object.keys(this.props.state.data).map(id => {
+              return <Result key={id} data={this.props.state.data[id]} />;
+            })
+          : ""}
       </Fragment>
     );
   }

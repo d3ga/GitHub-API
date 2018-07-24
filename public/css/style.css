@@ -4,6 +4,7 @@
   *   1. Imports
   *   2. Global Styles
   *   3. Images
+  *   4. Cards
   */
 /* 1. Imports
 -------------------------------------------*/
@@ -6332,3 +6333,13 @@ h2 {
 -------------------------------------------*/
 #github-logo {
   padding-bottom: 2rem; }
+
+/* 3. Cards
+-------------------------------------------*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .card-columns {
+    column-count: 4; } }
+
+@media (min-width: 1200px) {
+  .card-columns {
+    column-count: 5; } }
