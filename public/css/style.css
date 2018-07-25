@@ -6321,13 +6321,13 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* 2. Global Styles
 -------------------------------------------*/
+body {
+  font-family: "Montserrat", sans-serif; }
+
 #main {
   margin: 0 auto 1rem auto;
   padding: 3rem 1.5rem;
   text-align: center; }
-
-h2 {
-  font-weight: bold; }
 
 /* 2. Images
 -------------------------------------------*/
@@ -6338,8 +6338,26 @@ h2 {
 -------------------------------------------*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .card-columns {
-    column-count: 4; } }
+    column-count: 3; } }
 
 @media (min-width: 1200px) {
   .card-columns {
     column-count: 5; } }
+
+.card-columns .card-header {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #272727; }
+
+.card-columns .card-img-top {
+  cursor: pointer; }
+
+.card-columns .card-details {
+  text-align: start; }
+  .card-columns .card-details .card-title {
+    font-size: 0.9rem;
+    color: #484848; }
+  .card-columns .card-details .card-text {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #272727; }
