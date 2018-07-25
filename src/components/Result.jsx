@@ -7,17 +7,16 @@ class Result extends React.Component {
       data: []
     };
   }
-
   userNameRef = React.createRef();
 
-  handleClick = e => {
-    let userName = this.userNameRef.current.value;
+  handleClick = () => {
+    let userName = this.userNameRef.current.innerHTML;
+
     fetch(`${this.props.ApiURL}/users/${userName}`)
       .then(response => response.json())
       .then(response => {
         this.setState(state => {
           state.data = response;
-          console.log(this.state.data);
           return state;
         });
       })
@@ -78,11 +77,7 @@ class Result extends React.Component {
   }
 
   render() {
-    return this.state.loading ? (
-      <div>
-        <p>Loading...</p>
-      </div>
-    ) : (
+    return (
       <Fragment>
         <div className="card border-light mb-3">
           <div className="card-header" ref={this.userNameRef}>

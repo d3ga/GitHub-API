@@ -14,11 +14,9 @@ class SearchList extends React.Component {
   ApiURL = "https://api.github.com";
 
   getApiData = query => {
-    // console.log("Input:", query);
     fetch(`${this.ApiURL}/search/users?q=${query}`)
       .then(response => response.json())
       .then(response => {
-        // console.log(response);
         this.setState(state => {
           state.data = response.items;
           state.submit = true;
@@ -47,7 +45,7 @@ class SearchList extends React.Component {
           resetState={this.resetState}
         />
         <div className="card-columns">
-          {this.state.submit !== undefined || null
+          {this.state.submit
             ? Object.keys(this.state.data).map(id => {
                 return (
                   <Result

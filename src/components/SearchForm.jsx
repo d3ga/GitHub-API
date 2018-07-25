@@ -5,7 +5,7 @@ class SearchForm extends React.Component {
 
   handleFormSubmit = e => {
     e.preventDefault();
-    let query = this.userInputRef.current.value;
+    let query = this.userInputRef.current.value.trim();
     this.props.resetState();
     this.props.getApiData(query);
   };
@@ -19,6 +19,7 @@ class SearchForm extends React.Component {
               <input
                 type="text"
                 className="form-control"
+                required
                 placeholder="Search..."
                 ref={this.userInputRef}
                 defaultValue="d3ga"
